@@ -1,5 +1,6 @@
 import os
 import secrets
+import tempfile
 from functools import wraps
 
 import bcrypt
@@ -15,7 +16,7 @@ def create_app(test_config=None):
     app = Flask(__name__)
     app.config.from_mapping(
         SECRET_KEY=os.getenv("FLASK_SECRET_KEY", secrets.token_hex(32)),
-        DATABASE_PATH=os.getenv("DATABASE_PATH", "todo.db"),
+        DATABASE_PATH=os.getenv("DATABASE_PATH", os.path.join(tempfile.gettempdir(), "taskflow.db")),
         TESTING=False,
     )
     if test_config:
