@@ -40,6 +40,8 @@ TaskFlow is a secure, personal to-do web application built with Flask, SQLite, a
 
 The application creates `todo.db` automatically. The schema uses foreign keys and a `tasks.user_id` relationship to `users.id`. Every task query and mutation includes the authenticated user's ID.
 
+> SQLite is suitable for this demonstration, but production deployments should use a hosted database with persistent storage, backups, and managed security controls. A serverless platform such as Vercel may not preserve SQLite data across deployments.
+
 ## Tests
 
 Run the full test suite:
