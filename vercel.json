@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "buildCommand": "python -m pip install -r work/todo-app/requirements.txt",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/work/todo-app/api/index.py"
+    }
+  ]
+}
