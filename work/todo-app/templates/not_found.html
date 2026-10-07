@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Task not found — TaskFlow{% endblock %}
+{% block content %}
+<section class="empty-state">
+    <div class="empty-icon">?</div>
+    <h1>Task not found</h1>
+    <p>The task may have been deleted or belongs to another account.</p>
+    <a class="button button-primary" href="{{ url_for('tasks') }}">Return to tasks</a>
+</section>
+{% endblock %}

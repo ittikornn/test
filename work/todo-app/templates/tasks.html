@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}My Tasks — TaskFlow{% endblock %}
+{% block content %}
+<section class="page-heading">
+    <div>
+        <p class="eyebrow">Personal task list</p>
+        <h1>My Tasks</h1>
+    </div>
+    <p class="task-count">{{ tasks | length }} {{ 'task' if tasks | length == 1 else 'tasks' }}</p>
+</section>
+
+<form class="task-form" method="post" action="{{ url_for('tasks') }}">
+    <label class="sr-only" for="title">Task title</label>
+    <input id="title" name="title" type="text" maxlength="200" placeholder="What needs to be done?" required>
+    <button class="button button-primary" type="submit">Add task</button>
+</form>
+
+{% if tasks %}
+<ul class="task-list">
+    {% for task in tasks %}
+    <li class="task-item{% if task.completed %} task-completed{% endif %}">
+        <form class="task-toggle" method="post" action="{{ url_for('toggle_task', task_id=task.id) }}">
+            <input type="checkbox" name="completed" {% if task.completed %}checked{% endif %} onchange="this.form.submit()">
+            <span>{{ task.title }}</span>
+        </form>
+        <form class="task-delete" method="post" action="{{ url_for('delete_task', task_id=task.id) }}">
+            <button type="submit" aria-label="Delete {{ task.title }}">Delete</button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<section class="empty-state">
+    <div class="empty-icon">✓</div>
+    <h2>Your list is clear</h2>
+    <p>Add your first task above to get started.</p>
+</section>
+{% endif %}
+{% endblock %}
