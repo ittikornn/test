@@ -4,6 +4,10 @@
   "outputDirectory": ".",
   "routes": [
     {
+      "src": "/",
+      "dest": "/work/todo-app/api/index.py"
+    },
+    {
       "src": "/(.*)",
       "dest": "/work/todo-app/api/index.py"
     }
