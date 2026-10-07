@@ -1,6 +1,7 @@
 {
   "version": 2,
   "buildCommand": "python -m pip install --break-system-packages -r work/todo-app/requirements.txt",
+  "outputDirectory": ".",
   "routes": [
     {
       "src": "/(.*)",
