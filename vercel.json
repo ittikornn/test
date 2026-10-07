@@ -1,5 +1,11 @@
 {
   "version": 2,
   "buildCommand": "python -m pip install --break-system-packages -r work/todo-app/requirements.txt",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.py"
+    }
+  ]
 }
