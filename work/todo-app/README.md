@@ -36,6 +36,16 @@ TaskFlow is a secure, personal to-do web application built with Flask, SQLite, a
 
 6. Open `http://127.0.0.1:5000` and create an account.
 
+## Deploy to Vercel
+
+1. Push the project to GitHub.
+2. Import the repository into Vercel.
+3. Select **Python** as the framework preset, or use the included `vercel.json` configuration.
+4. Set `FLASK_SECRET_KEY` in the Vercel environment variables.
+5. Deploy the project.
+
+The Vercel deployment uses the included Flask handler. SQLite data is temporary and may not survive function redeployments.
+
 ## Database
 
 The application creates `todo.db` automatically. The schema uses foreign keys and a `tasks.user_id` relationship to `users.id`. Every task query and mutation includes the authenticated user's ID.
