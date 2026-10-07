@@ -5,11 +5,11 @@
   "routes": [
     {
       "src": "/",
-      "dest": "/work/todo-app/api/index.py"
+      "dest": "/api/index.py"
     },
     {
       "src": "/(.*)",
-      "dest": "/work/todo-app/api/index.py"
+      "dest": "/api/index.py"
     }
   ]
 }
